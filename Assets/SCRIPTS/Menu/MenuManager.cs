@@ -16,7 +16,7 @@ public class MenuManager : MonoBehaviour
     public void OpenMenu(string menuName){
         foreach (Menu menu in menus){
             if (menu.MenuName == menuName){
-                OpenMenu(menu);
+                menu.Open();
             } 
             else if (menu.open){
                 CloseMenu(menu);
