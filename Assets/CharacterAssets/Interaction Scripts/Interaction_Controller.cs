@@ -33,6 +33,8 @@ public class Interaction_Controller : MonoBehaviour
                 interactableList.Add(interactable);
             }
         }
+        Debug.Log(interactableList);
+
 
         IInteraction closestInteractable = null;
         foreach (IInteraction interactable in interactableList)

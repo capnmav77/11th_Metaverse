@@ -8,17 +8,33 @@ public class Drawer_Interaction : MonoBehaviour, IInteraction
 
     [SerializeField] private string interactText;
 
-    
+    private bool isOpened = false;
+
+
+    Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+
+    }
+
 
 
     public void Interact()
     {
-        Debug.Log(interactText);
+        isOpened = !isOpened;
+
+        animator.SetTrigger("openTrigger");
     }
 
     public string GetInteractText()
     {
-        return interactText;
+        if (isOpened)
+        {
+            return "Close " + interactText + " Drawer";
+        }
+        return "Open " + interactText + " Drawer";
     }
 
     public Transform GetTransform()

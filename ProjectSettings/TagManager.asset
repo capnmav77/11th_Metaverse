@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - room_lights
+  - room_fan
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - InteractionLayer
   - Water
   - UI
   - 
