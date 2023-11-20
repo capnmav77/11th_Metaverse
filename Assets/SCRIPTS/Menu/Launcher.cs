@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;  // Photon Unity Networking
 using TMPro;  // TextMeshPro
 using Photon.Realtime;  // Photon Realtime
+using System.IO;  // Input Output
 public class Launcher : MonoBehaviourPunCallbacks
 {
     public static Launcher Instance;
@@ -61,15 +62,24 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuManager.Instance.OpenMenu("Loading");
     }
 
-    public override void OnJoinedRoom(){
+
+    public override void OnJoinedRoom()
+    {
         MenuManager.Instance.OpenMenu("room");
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 
         Player[] players = PhotonNetwork.PlayerList;
 
+        foreach(Transform child in playerListContent){
+            Destroy(child.gameObject);
+        }
+
         for(int i=0 ; i<players.Length ; i++){
             Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }
+
+        // // Instantiate the player object for each player
+        // PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerController"), Vector3.zero, Quaternion.identity);
 
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);
     }

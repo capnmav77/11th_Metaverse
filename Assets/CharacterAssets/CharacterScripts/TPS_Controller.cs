@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
+using System.IO;
 
 public class TPS_Controller : MonoBehaviour
 {
@@ -15,11 +18,24 @@ public class TPS_Controller : MonoBehaviour
 
     private float runningBoost = 1.0f;
 
+    PhotonView PV;
 
     float turnSmoothVelocity;
+
+    void Awake()
+    {
+        PV = GetComponent<PhotonView>();
+    }
+
     void Start()
     {
-
+        // if (PV!=null && !PV.IsMine)
+        // {
+        //     Debug.Log("PV is not mine");
+        //     Destroy(GetComponentInChildren<Camera>().gameObject);
+        //     Destroy(GetComponentInChildren<Camera>().gameObject);
+        //     Destroy(GetComponentInChildren<AudioListener>().gameObject);
+        // }
     }
 
     void HandleRunningBoostTransition(bool condition)
@@ -40,16 +56,18 @@ public class TPS_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PV.IsMine){
+           HandleMovement();
+        }
+        
+    }
 
+    void HandleMovement(){
         float playerVerticalInput = Input.GetAxisRaw("Vertical");
         float playerHorizontalInput = Input.GetAxisRaw("Horizontal");
         bool condition = Input.GetKey(KeyCode.LeftShift);
 
         HandleRunningBoostTransition(condition);
-
-
-
-
 
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
@@ -66,7 +84,6 @@ public class TPS_Controller : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
-
 
     }
 }
