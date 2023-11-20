@@ -13,11 +13,11 @@ public class PlayerController : MonoBehaviour
     Vector3 smoothMoveVelocity;
     Vector3 moveAmount;
     private float verticalLookRotation;
-    Rigidbody rb;
+    //Rigidbody rb;
     PhotonView PV;  
 
     void Awake(){
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
     }
 
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         if(!PV.IsMine){
             Destroy(GetComponentInChildren<Camera>().gameObject);
-            Destroy(rb);
+            //Destroy(rb);
         }
     } 
 
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
             
 		Look();
 		Move(); 
-        Jump();
+        //Jump();
 		
 	}
 
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Space) && grounded)
 		{
-			rb.AddForce(transform.up * jumpForce);
+			//rb.AddForce(transform.up * jumpForce);
 		}
 	}
     
@@ -78,6 +78,6 @@ public class PlayerController : MonoBehaviour
 		if(!PV.IsMine)
 			return;
 
-		rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+		//rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
 	}
 }
