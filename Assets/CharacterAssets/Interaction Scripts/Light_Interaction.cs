@@ -38,6 +38,10 @@ public class Light_Interaction : MonoBehaviour, IInteraction
         }
 
 
-        Debug.Log("Interacted with light");
+    }
+
+    public GameObject GetAttachment()
+    {
+        return gameObject;
     }
 }

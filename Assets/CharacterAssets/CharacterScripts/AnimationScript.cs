@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 public class AnimationScript : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class AnimationScript : MonoBehaviour
 
     int VelocityHash;
 
+ 
 
     // Start is called before the first frame update
     void Start()

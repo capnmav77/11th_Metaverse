@@ -42,6 +42,11 @@ public class Drawer_Interaction : MonoBehaviour, IInteraction
         return transform;
     }
 
+    public GameObject GetAttachment()
+    {
+        return gameObject;
+    }
+
 
 
 }

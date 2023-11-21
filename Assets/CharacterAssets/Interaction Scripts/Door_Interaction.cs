@@ -15,7 +15,6 @@ public class Door_Interaction : MonoBehaviour, IInteraction
     void Start()
     {
         animator = door.GetComponent<Animator>();
-
     }
 
 
@@ -39,6 +38,11 @@ public class Door_Interaction : MonoBehaviour, IInteraction
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    public GameObject GetAttachment()
+    {
+        return gameObject;
     }
 
 

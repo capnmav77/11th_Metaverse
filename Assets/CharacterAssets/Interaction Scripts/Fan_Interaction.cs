@@ -57,6 +57,11 @@ public class Fan_Interaction : MonoBehaviour, IInteraction
 
     }
 
+    public GameObject GetAttachment()
+    {
+        return gameObject;
+    }
+
     // Start is called before the first frame update
 
 }

@@ -8,4 +8,6 @@ public interface IInteraction {
     string GetInteractText();
     Transform GetTransform();
 
+    GameObject GetAttachment();
+
 }

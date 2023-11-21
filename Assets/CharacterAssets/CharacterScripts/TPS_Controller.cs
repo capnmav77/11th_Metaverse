@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class TPS_Controller : MonoBehaviour
+
+public class TPS_Controller : MonoBehaviour 
 {
     public float speed = 1.0f;
     // Start is called before the first frame update
@@ -15,12 +17,16 @@ public class TPS_Controller : MonoBehaviour
 
     private float runningBoost = 1.0f;
 
+    
+
 
     float turnSmoothVelocity;
     void Start()
     {
 
     }
+
+
 
     void HandleRunningBoostTransition(bool condition)
     {
@@ -46,11 +52,6 @@ public class TPS_Controller : MonoBehaviour
         bool condition = Input.GetKey(KeyCode.LeftShift);
 
         HandleRunningBoostTransition(condition);
-
-
-
-
-
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
         Vector3 relativeForwardMovement = playerVerticalInput * forward;

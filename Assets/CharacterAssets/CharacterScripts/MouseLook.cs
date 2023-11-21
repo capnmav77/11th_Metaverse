@@ -10,8 +10,7 @@ public class MouseLook : MonoBehaviour
 
     [SerializeField] float mouseSensitivity = 100f;
 
-    [SerializeField]  Transform targetBody;
-    [SerializeField] Transform player;
+    public Transform targetBody;
 
 
 
@@ -21,7 +20,7 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -39,8 +38,9 @@ public class MouseLook : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
-        transform.position = targetBody.position;
-
-        
+        if (targetBody != null)
+        {
+            transform.position = targetBody.position;
+        }
     }
 }
