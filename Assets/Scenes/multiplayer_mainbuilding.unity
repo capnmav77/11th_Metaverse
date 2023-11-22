@@ -536,6 +536,10 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1817823318}
+    - target: {fileID: 25857419, guid: 1ce21c83f43f3ca4896df42c33bf6df5, type: 3}
+      propertyPath: m_Size.z
+      value: 17.71
+      objectReference: {fileID: 0}
     - target: {fileID: 655737457346741759, guid: 1ce21c83f43f3ca4896df42c33bf6df5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -14501,7 +14505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701362012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.081}
+  m_LocalPosition: {x: 0, y: -0.005, z: -0.087}
   m_LocalScale: {x: 0.022906361, y: 0.2447578, z: 0.1534668}
   m_ConstrainProportionsScale: 0
   m_Children: []

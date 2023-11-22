@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Networking;
+using Unity.Netcode;
 
-public class Whiteboard : MonoBehaviour, IInteraction
+public class Whiteboard : MonoBehaviour , IInteraction
 {
     public Texture2D texture;
     public Vector2 textureSize = new Vector2(2048, 2048);
@@ -17,6 +19,12 @@ public class Whiteboard : MonoBehaviour, IInteraction
     private Color[] _eraseColor;
     private Color[] _color;
 
+    // [SyncVar(hook="OnTextureChange")] private Texture2D syncedTexture;
+    
+    // [SyncVar] private bool textureInitialized = false;
+
+    private bool _active = false;
+
     [SerializeField] public GameObject playerCamera;
     [SerializeField] public GameObject whiteBoardCamera;
 
@@ -25,7 +33,7 @@ public class Whiteboard : MonoBehaviour, IInteraction
 
     private bool lastTouch = false;
     private Vector2 lastPosition;
-    private bool _active = false;
+
 
     void Start()
     {
@@ -39,7 +47,39 @@ public class Whiteboard : MonoBehaviour, IInteraction
 
         _color = _writeColor;
 
+        // if(isLocalPlayer){
+        //     if(!textureInitialized){
+        //         textureInitialized = true;
+        //         syncedTexture = texture;
+        //     }
+        // }
+
     }
+
+    // [Command]
+    // void cmdSendTextureToServer(byte[] textureBytes){
+    //     syncedTexture = new Texture2D((int)textureSize.x, (int)textureSize.y);
+    //     syncedTexture.LoadImage(textureBytes);
+
+    //     RpcSendTextureToClients(textureBytes);
+    // }
+
+    // void OnTextureChanged(Texture2D newTexture){
+    //     texture = newTexture;
+    //     _renderer.material.mainTexture = newTexture;
+    // }
+
+    // byte[] GetTextureBytes(){
+    //     return texture.EncodeToPNG();
+    // }
+
+
+    // [ClientRpc]
+    // void RpcSendTextureToClients(byte[] textureBytes){
+    //     syncedTexture = new Texture2D((int)textureSize.x, (int)textureSize.y);
+    //     syncedTexture.LoadImage(textureBytes);
+    // }
+
 
     public GameObject GetAttachment()
     {

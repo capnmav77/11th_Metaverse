@@ -32,6 +32,7 @@ public class PlayerNetwork : NetworkBehaviour
             Destroy(transform.GetComponent<TPS_Controller>());
             Destroy(transform.GetComponent<AnimationScript>());
             Destroy(canvas.GetComponent<Interact_UI_Script>());
+
             canvas.SetActive(false);
         }
         else

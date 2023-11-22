@@ -48,7 +48,7 @@ public class Interaction_Controller : NetworkBehaviour
     {
         if (name != null)
         {
-
+            if (name == "Whiteboard" && !IsOwner) return;
 
             GameObject targetObject = GameObject.Find(name);
 
