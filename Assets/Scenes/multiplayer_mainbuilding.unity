@@ -10468,7 +10468,7 @@ BoxCollider:
   m_GameObject: {fileID: 528343550}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.5588865, y: 0.2803268, z: 7.228464}
   m_Center: {x: 0.054087162, y: -0.025375845, z: -0.515155}
@@ -36675,7 +36675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4196c8eebb3a1a4f9e2df3df74406f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  mouseSensitivity: 150
   targetBody: {fileID: 0}
 --- !u!81 &1817823317
 AudioListener:
@@ -39954,6 +39954,10 @@ PrefabInstance:
     - target: {fileID: 3688398020969547486, guid: 5d1ca7dba5a772342b76b4c7345511ba, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3688398020978813246, guid: 5d1ca7dba5a772342b76b4c7345511ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d1ca7dba5a772342b76b4c7345511ba, type: 3}
@@ -111714,7 +111718,7 @@ BoxCollider:
   m_GameObject: {fileID: 1557480254733629479}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
