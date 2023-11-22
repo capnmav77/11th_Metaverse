@@ -70,7 +70,7 @@ public class Interaction_Controller : NetworkBehaviour
         List<IInteraction> interactableList = new();
 
 
-        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange, 8);
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange, 72);
         foreach (Collider collider in colliderArray)
         {
             if (collider.TryGetComponent(out IInteraction interactable))

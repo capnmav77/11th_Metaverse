@@ -82,10 +82,10 @@ public class Whiteboard : MonoBehaviour, IInteraction
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Interact();
-        }
+        // if (Input.GetKeyDown(KeyCode.L))
+        // {
+        //     Interact();
+        // }
         if (_active)
         {
             Cursor.lockState = CursorLockMode.None; // Unlock the cursor while using the whiteboard
