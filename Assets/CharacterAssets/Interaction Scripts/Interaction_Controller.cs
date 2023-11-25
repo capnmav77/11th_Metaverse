@@ -24,8 +24,11 @@ public class Interaction_Controller : NetworkBehaviour
             {
                 GameObject interactObject = interactable.GetAttachment();
                 string objectName = interactObject.name;
-                RequestInteractServerRpc(objectName);
-                Interact(objectName);
+                if (objectName.ToLower() != "whiteboard")
+                {
+                    RequestInteractServerRpc(objectName);
+                }
+            Interact(objectName);
             }
 
         }
@@ -48,7 +51,6 @@ public class Interaction_Controller : NetworkBehaviour
     {
         if (name != null)
         {
-            if (name == "Whiteboard" && !IsOwner) return;
 
             GameObject targetObject = GameObject.Find(name);
 
